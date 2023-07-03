@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Image , Text, View, SafeAreaView, TouchableOpacity } from 'react-native';
+import { StyleSheet, Image , Text, View, SafeAreaView, TouchableOpacity, Touchable } from 'react-native';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-
+import LoginScreen from './Login';
 import { NavigationContainer } from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
@@ -17,6 +17,7 @@ const Stack = createNativeStackNavigator();
       <Stack.Navigator>
         <Stack.Screen component={Main} name="Main" options={{headerShown:false}} />
         <Stack.Screen component={Home} name="Home" options={{headerShown:false}}/>
+        <Stack.Screen component={LoginScreen} name="Login" options={{headerShown:false}}/>
       </Stack.Navigator>
     </NavigationContainer>
  );
@@ -70,6 +71,14 @@ const Home = ({navigation}) => {
                 }}>
         <Text style={{fontWeight: 'bold', fontSize: 18, color: '#fff'}}>Home</Text>
         {/* I cannot get the font above to work. I'm not for sure gonna use it but for some reason I cant link the font assets to the project using npx react-native-assets(can't use react-native-link anymore sadge) */}
+        <MaterialIcons name="arrow-forward-ios" size={22} color="#fff" />
+      </TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => navigation.navigate('Login')}
+        style={{backgroundColor: '#32CD32', padding: 20, width: '90%', borderRadius: 5, flexDirection: 'row', justifyContent: 'space-between', marginBottom: 40
+                }}
+      >
+        <Text style={{fontWeight: 'bold', fontSize: 18, color: '#fff'}}>Login</Text>
         <MaterialIcons name="arrow-forward-ios" size={22} color="#fff" />
       </TouchableOpacity>
     </View>
