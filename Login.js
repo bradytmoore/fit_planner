@@ -50,6 +50,19 @@ const LoginTab = ({ navigation }) => {
             <CheckBox 
                 title='Remember Me'
             />
+            <View style={styles.formButton}>
+                <Button
+                    onPress={() => handleLogin()}
+                    title='Login'
+                    color='#32CD32'
+                    icon={
+                        <Icon
+                            name='assignment-ind'
+                        />
+                    }
+                    buttonStyle={{ backgroundColor: '#32CD32'}}
+                />
+            </View>
         </View>
     )
 
@@ -93,26 +106,47 @@ const RegisterTab = () => {
             <View style={styles.container}>
                 <Input 
                     placeholder='Username'
+                    value={username}
+                    containerStyle={styles.formIcon}
                 />
                 <Input 
                     placeholder='Password'
+                    value={password}
+                    containerStyle={styles.formIcon}
                 />
                 <Input
                     placeholder='First Name'
+                    value={firstname}
+                    containerStyle={styles.formIcon}
                 />
                 <Input
                     placeholder='Last Name'
+                    value={lastname}
+                    containerStyle={styles.formIcon}
                 />
                 <Input
                     placeholder='Email'
+                    value={email}
+                    containerStyle={styles.formIcon}
                 />
                 <CheckBox
                     title='Remember Me'
+                    center
+                    checked={remember}
+                    onPress={() => setRemember(!remember)}
+                    containerStyle={styles.formCheckbox}
                 />
                 <View style={styles.formButton}>
-                    <Button 
-                        onPress={() => handleRegister()}
+                    <Button
+                        onPress={() => handleLogin()}
                         title='Register'
+                        color='#32CD32'
+                        icon={
+                            <Icon
+                                name='assignment-ind'
+                            />
+                        }
+                        buttonStyle={{ backgroundColor: '#32CD32'}}
                     />
                 </View>
             </View>
@@ -124,38 +158,38 @@ const Tab = createBottomTabNavigator();
 
 const LoginScreen = () => {
     const tabBarOptions = {
-
+    /* Input CSS Rules here for the bottom tabs */
     };
 
     return (
-        <Tab.Navigator tabBarOptions={tabBarOptions}>
-            <Tab.Screen 
-                name='Login'
-                component={LoginTab}
-                options={{
-                    tabBarIcon: (props) => {
-                        return (
-                            <Icon 
-                                name='sign-in'
-                            />
-                        )
-                    }
-                }}
-            />
-            <Tab.Screen 
-                name='Register'
-                component={RegisterTab}
-                options={{
-                    tabBarIcon: (props) => {
-                        return (
-                            <Icon
-                                name='user-plus'
-                            />
-                        )
-                    }
-                }}
-            />
-        </Tab.Navigator>
+            <Tab.Navigator tabBarOptions={tabBarOptions}>
+                <Tab.Screen 
+                    name='LoginTab'
+                    component={LoginTab}
+                    options={{
+                        tabBarIcon: (props) => {
+                            return (
+                                <Icon 
+                                    name='login'
+                                />
+                            )
+                        }
+                    }}
+                />
+                <Tab.Screen 
+                    name='Register'
+                    component={RegisterTab}
+                    options={{
+                        tabBarIcon: (props) => {
+                            return (
+                                <Icon
+                                    name='app-registration'
+                                />
+                            )
+                        }
+                    }}
+                />
+            </Tab.Navigator>
     )
 };
 
@@ -166,6 +200,12 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
     },
+    formButton: {
+
+    },
+    formIcon: {
+
+    }
 });
 
 export default LoginScreen;
