@@ -48,12 +48,16 @@ const LoginTab = ({ navigation }) => {
                 leftIcon={<AntDesign name='user'/>}
                 leftIconContainerStyle={styles.formIcon}
                 containerStyle={styles.formInput}
+                onChangeText={(text) => setUsername(text)}
+                value={username}
             />
             <Input 
                 placeholder='Password'
                 leftIcon={<MaterialCommunityIcons name='onepassword'/>}
                 leftIconContainerStyle={styles.formIcon}
                 containerStyle={styles.formInput}
+                onChangeText={(text) => setPassword(text)}
+                value={password}
             />
             <CheckBox
                 title='Remember Me'
@@ -120,26 +124,31 @@ const RegisterTab = () => {
                     placeholder='Username'
                     value={username}
                     containerStyle={styles.formIcon}
+                    onChangeText={(text) => setUsername(text)}
                 />
                 <Input 
                     placeholder='Password'
                     value={password}
                     containerStyle={styles.formIcon}
+                    onChangeText={(text) => setPassword(text)}
                 />
                 <Input
                     placeholder='First Name'
                     value={firstname}
                     containerStyle={styles.formIcon}
+                    onChangeText={(text) => setFirstName(text)}
                 />
                 <Input
                     placeholder='Last Name'
                     value={lastname}
                     containerStyle={styles.formIcon}
+                    onChangeText={(text) => setLastName(text)}
                 />
                 <Input
                     placeholder='Email'
                     value={email}
                     containerStyle={styles.formIcon}
+                    onChangeText={(text) => setEmail(text)}
                 />
                 <CheckBox
                     title='Remember Me'
