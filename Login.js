@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react';
-import { View, StyleSheet, ScrollView, Image } from 'react-native';
-import { CheckBox, Input, Button, Icon } from 'react-native-elements';
+import { View, StyleSheet, ScrollView, Image, TouchableOpacity, Text } from 'react-native';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import { CheckBox, Input, Button, Icon, BottomSheet } from 'react-native-elements';
 import * as SecureStore from 'expo-secure-store';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
+
 
 const LoginTab = ({ navigation }) => {
     const [username, setUsername] = useState('');
@@ -81,12 +83,22 @@ const LoginTab = ({ navigation }) => {
                     buttonStyle={{ backgroundColor: '#32CD32'}}
                 />
             </View>
+            <TouchableOpacity 
+                    onPress={() => navigation.navigate('Main')}
+                    //MAIN YET TO BE IMPLEMENTED
+
+                    style={{backgroundColor: '#32CD32', padding: 20, width: '50%', borderRadius: 5, flexDirection: 'row', justifyContent: 'space-between', marginTop: 80
+                            }}>
+                    <Text style={{fontWeight: 'bold', fontSize: 18, color: '#fff'}}>Home</Text>
+                    
+                    <MaterialIcons name="arrow-forward-ios" size={22} color="#fff" />
+            </TouchableOpacity>
         </View>
     )
 
 };
 
-const RegisterTab = () => {
+const RegisterTab = ({ navigation }) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [firstname, setFirstName] = useState('');
@@ -178,6 +190,16 @@ const RegisterTab = () => {
                         buttonStyle={{ backgroundColor: '#32CD32'}}
                     />
                 </View>
+                <TouchableOpacity 
+                    onPress={() => navigation.navigate('Main')}
+                    //MAIN YET TO BE IMPLEMENTED
+
+                    style={{backgroundColor: '#32CD32', padding: 20, width: '50%', borderRadius: 5, flexDirection: 'row', justifyContent: 'space-between', marginTop: 50
+                            }}>
+                    <Text style={{fontWeight: 'bold', fontSize: 18, color: '#fff'}}>Home</Text>
+                    
+                    <MaterialIcons name="arrow-forward-ios" size={22} color="#fff" />
+                </TouchableOpacity>
             </View>
     )      
 };
