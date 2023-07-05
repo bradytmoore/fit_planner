@@ -5,6 +5,7 @@ import * as SecureStore from 'expo-secure-store';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 const LoginTab = ({ navigation }) => {
     const [username, setUsername] = useState('');
@@ -58,6 +59,7 @@ const LoginTab = ({ navigation }) => {
                 containerStyle={styles.formInput}
                 onChangeText={(text) => setPassword(text)}
                 value={password}
+                secureTextEntry={true}
             />
             <CheckBox
                 title='Remember Me'
@@ -125,30 +127,36 @@ const RegisterTab = () => {
                     value={username}
                     containerStyle={styles.formIcon}
                     onChangeText={(text) => setUsername(text)}
+                    leftIcon={<AntDesign name='user' />}
                 />
                 <Input 
                     placeholder='Password'
                     value={password}
                     containerStyle={styles.formIcon}
                     onChangeText={(text) => setPassword(text)}
+                    secureTextEntry={true}
+                    leftIcon={<MaterialCommunityIcons name='form-textbox-password' />}
                 />
                 <Input
                     placeholder='First Name'
                     value={firstname}
                     containerStyle={styles.formIcon}
                     onChangeText={(text) => setFirstName(text)}
+                    leftIcon={<FontAwesome name='id-badge' />}
                 />
                 <Input
                     placeholder='Last Name'
                     value={lastname}
                     containerStyle={styles.formIcon}
                     onChangeText={(text) => setLastName(text)}
+                    leftIcon={<FontAwesome name='id-badge' />}
                 />
                 <Input
                     placeholder='Email'
                     value={email}
                     containerStyle={styles.formIcon}
                     onChangeText={(text) => setEmail(text)}
+                    leftIcon={<MaterialCommunityIcons name='email-alert-outline' />}
                 />
                 <CheckBox
                     title='Remember Me'
@@ -177,10 +185,6 @@ const RegisterTab = () => {
 const Tab = createBottomTabNavigator();
 
 const LoginScreen = () => {
-    const tabBarOptions = {
-    /* Input CSS Rules here for the bottom tabs */
-    };
-
     return (
             <Tab.Navigator 
                 screenOptions = {({ route }) => ({
@@ -239,15 +243,8 @@ const styles = StyleSheet.create({
     },
     formIcon: {
         margin: 15
-        
-        
-        
     },
     formCheckbox: {
-        backgroundColor: '#36454F',
-        fontWeight: 'bold',
-        color: '#00000',
-        borderColor: 'black',
         
     }
 });
