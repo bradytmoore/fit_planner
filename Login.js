@@ -3,6 +3,8 @@ import { View, StyleSheet, ScrollView, Image } from 'react-native';
 import { CheckBox, Input, Button, Icon } from 'react-native-elements';
 import * as SecureStore from 'expo-secure-store';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import AntDesign from 'react-native-vector-icons/AntDesign';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const LoginTab = ({ navigation }) => {
     const [username, setUsername] = useState('');
@@ -40,15 +42,25 @@ const LoginTab = ({ navigation }) => {
     }, []);
 
     return (
-        <View style={styles.container}>
+        <View style={styles.container} options={{headerShown: false}}>
             <Input 
                 placeholder='Username'
+                leftIcon={<AntDesign name='user'/>}
+                leftIconContainerStyle={styles.formIcon}
+                containerStyle={styles.formInput}
             />
             <Input 
                 placeholder='Password'
+                leftIcon={<MaterialCommunityIcons name='onepassword'/>}
+                leftIconContainerStyle={styles.formIcon}
+                containerStyle={styles.formInput}
             />
-            <CheckBox 
+            <CheckBox
                 title='Remember Me'
+                center
+                checked={remember}
+                onPress={() => setRemember(!remember)}
+                containerStyle={styles.formCheckbox}
             />
             <View style={styles.formButton}>
                 <Button
@@ -138,7 +150,7 @@ const RegisterTab = () => {
                 />
                 <View style={styles.formButton}>
                     <Button
-                        onPress={() => handleLogin()}
+                        onPress={() => handleRegister()}
                         title='Register'
                         color='#32CD32'
                         icon={
@@ -162,11 +174,24 @@ const LoginScreen = () => {
     };
 
     return (
-            <Tab.Navigator tabBarOptions={tabBarOptions}>
+            <Tab.Navigator 
+                screenOptions = {({ route }) => ({
+                    tabBarStyle: [
+                        {
+                            display:'flex'
+                        },
+                        null
+                    ],
+                tabBarIcon: ({ color }) =>
+                screenOptions(route, color),
+
+                })}
+            >
                 <Tab.Screen 
                     name='LoginTab'
                     component={LoginTab}
                     options={{
+                        headerShown: false,
                         tabBarIcon: (props) => {
                             return (
                                 <Icon 
@@ -180,6 +205,7 @@ const LoginScreen = () => {
                     name='Register'
                     component={RegisterTab}
                     options={{
+                        headerShown: false,
                         tabBarIcon: (props) => {
                             return (
                                 <Icon
@@ -204,7 +230,13 @@ const styles = StyleSheet.create({
 
     },
     formIcon: {
-
+        margin: 10
+    },
+    formCheckbox: {
+        backgroundColor: '#36454F',
+        fontWeight: 'bold',
+        color: '#00000',
+        borderColor: 'black'
     }
 });
 

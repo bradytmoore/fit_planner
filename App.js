@@ -5,6 +5,7 @@ import LoginScreen from './Login';
 import { NavigationContainer } from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
+
 // Currently this app is only designed to get you from the start page to the main page. Once we move on to login and user auth a lot will change
 
 //I also plan to break everything up into their own JS files but I wanted to have everything in front of me at first
