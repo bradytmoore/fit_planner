@@ -118,8 +118,7 @@ const RegisterTab = () => {
     };
 
     return (
-    <View style={styles.container}>
-        <ScrollView>
+    
             <View style={styles.container}>
                 <Input 
                     placeholder='Username'
@@ -172,9 +171,7 @@ const RegisterTab = () => {
                     />
                 </View>
             </View>
-        </ScrollView>
-    </View>
-    );
+    )      
 };
 
 const Tab = createBottomTabNavigator();
@@ -241,8 +238,8 @@ const styles = StyleSheet.create({
         
     },
     formIcon: {
-        margin: 10,
-        paddingTop: 50,
+        margin: 15
+        
         
         
     },
