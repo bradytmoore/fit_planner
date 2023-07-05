@@ -118,6 +118,7 @@ const RegisterTab = () => {
     };
 
     return (
+    <View style={styles.container}>
         <ScrollView>
             <View style={styles.container}>
                 <Input 
@@ -172,6 +173,7 @@ const RegisterTab = () => {
                 </View>
             </View>
         </ScrollView>
+    </View>
     );
 };
 
@@ -236,16 +238,20 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     formButton: {
-
+        
     },
     formIcon: {
-        margin: 10
+        margin: 10,
+        paddingTop: 50,
+        
+        
     },
     formCheckbox: {
         backgroundColor: '#36454F',
         fontWeight: 'bold',
         color: '#00000',
-        borderColor: 'black'
+        borderColor: 'black',
+        
     }
 });
 
